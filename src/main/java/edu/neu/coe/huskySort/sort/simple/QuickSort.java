@@ -52,6 +52,7 @@ public abstract class QuickSort<X extends Comparable<X>> extends SortWithHelper<
      * @param depth the depth of the recursion.
      */
     void sort(final X[] xs, final int from, final int to, final int depth) {
+
         if (terminator(xs, from, to, depth)) return;
         getHelper().registerDepth(depth);
         final Partition<X> partition = createPartition(xs, from, to);
@@ -72,13 +73,14 @@ public abstract class QuickSort<X extends Comparable<X>> extends SortWithHelper<
      */
     protected boolean terminator(final X[] xs, final int from, final int to, final int depth) {
         @SuppressWarnings("UnnecessaryLocalVariable") final int lo = from;
-        if (to <= lo + getHelper().getCutoff()) {
+        if (to <= lo ) {
+//+ getHelper().getCutoff()
             insertionSort.sort(xs, from, to);
             return true;
         }
         return false;
     }
-
+//
     /**
      * NOTE: this is called by privateMethodTester and needs to be visible.
      *
