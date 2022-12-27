@@ -107,7 +107,8 @@ public class QuickSort_3way<X extends Comparable<X>> extends QuickSort<X> {
         }
 
         private void swap(final X[] ys, final int i, final int j) {
-            if (helper != null) helper.swap(ys, i, j);
+            if (helper != null)
+                helper.swap(ys, i, j);
             else {
                 final X temp = ys[i];
                 ys[i] = ys[j];
